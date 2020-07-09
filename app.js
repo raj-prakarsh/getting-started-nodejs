@@ -11,6 +11,14 @@ app.get("/error", (req, res) => {
     res.writeHead(500, { 'Content-Type': 'application/json' });
     res.end();
 })
+app.get("/timeout-test", (req, res) => {
+    res.writeHead(500, { 'Content-Type': 'application/json' });
+    res.write('Hello\n');
+    setTimeout(function() {
+          res.end(' World\n');
+      }, 5000);
+})
+
 app.get('/health', (req, res) => res.send({"status": "OK", "time": new Date()}))
 var port = process.env.PORT || 8080;
 app.listen(port);
