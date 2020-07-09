@@ -16,7 +16,7 @@ app.get("/timeout-test", (req, res) => {
     res.write('Hello\n');
     setTimeout(function() {
           res.end(' World\n');
-      }, 5000);
+      }, 240000);
 })
 
 app.get('/health', (req, res) => res.send({"status": "OK", "time": new Date()}))
